@@ -5,7 +5,7 @@
 #include <conio.h>
 #include "Personas.h"
 #include "Validacion.h"
-#define MAX 49
+#define MAX 99
 
 
 

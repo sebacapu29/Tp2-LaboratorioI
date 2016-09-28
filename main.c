@@ -35,7 +35,7 @@ void Graficar(EPersona personas[], int TAM);
 int main()
 {
     char seguir='s';
-    int TAM=8;
+    int TAM=20;
     int opcion;
     int DNI;
     int dniEncontrado;
