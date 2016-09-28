@@ -1,0 +1,31 @@
+# depslib dependency file v1.0
+1475024507 source:d:\users\capu\desktop\tp2(final)\tp2_laboratorio1\funcionespersonas.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	"Personas.h"
+	"Validacion.h"
+
+1475024622 d:\users\capu\desktop\tp2(final)\tp2_laboratorio1\personas.h
+
+1475024507 d:\users\capu\desktop\tp2(final)\tp2_laboratorio1\validacion.h
+	"Personas.h"
+
+1475023991 source:d:\users\capu\desktop\tp2(final)\tp2_laboratorio1\funcionesvalidacion.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"Personas.h"
+
+1475024048 source:d:\users\capu\desktop\tp2(final)\tp2_laboratorio1\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	"Personas.h"
+	"Validacion.h"
+
