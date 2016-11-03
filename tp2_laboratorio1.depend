@@ -29,7 +29,7 @@
 	"Personas.h"
 	"Validacion.h"
 
-1475024507 source:d:\users\capu\documents\github\tp2-laboratorioi\funcionespersonas.c
+1478180919 source:d:\users\capu\documents\github\tp2-laboratorioi\funcionespersonas.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -38,19 +38,19 @@
 	"Personas.h"
 	"Validacion.h"
 
-1475024622 d:\users\capu\documents\github\tp2-laboratorioi\personas.h
+1478180286 d:\users\capu\documents\github\tp2-laboratorioi\personas.h
 
-1475024507 d:\users\capu\documents\github\tp2-laboratorioi\validacion.h
+1478180919 d:\users\capu\documents\github\tp2-laboratorioi\validacion.h
 	"Personas.h"
 
-1475023991 source:d:\users\capu\documents\github\tp2-laboratorioi\funcionesvalidacion.c
+1478180957 source:d:\users\capu\documents\github\tp2-laboratorioi\funcionesvalidacion.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<ctype.h>
 	"Personas.h"
 
-1475024048 source:d:\users\capu\documents\github\tp2-laboratorioi\main.c
+1478179849 source:d:\users\capu\documents\github\tp2-laboratorioi\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>

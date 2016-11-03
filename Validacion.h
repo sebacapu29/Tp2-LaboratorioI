@@ -2,27 +2,19 @@
 #define FUNCIONESESTRUCTURAS_H_INCLUDED
 #include "Personas.h"
 
+#define TAM_CADENA 100
+#define TAM_BUFFER 5000
 
-/** \brief Verifica la opcion comprendida en el vector rango
- *
- * \param opcion Entero a validar
- * \param rango Array de enteros
- * \return un Entero, 1 si es un valor correcto - 0 si no lo es.
- *
- */
-
-int validaOpcion(int opcion, int rango[]);
-
-/** \brief Muestra el mennu de opciones
+/** \brief Muestra el menu de opciones
  *
  * \param texto Array con la cadena de texto para mostrarle al usuario
  * \return Un entero ingresado por el usuario
  *
  */
 
-int Menu(char texto[]);
+int menu(char* texto);
 
-/** \brief Se encarga de dejar mas prolija la cadena ingresada por el usuario.
+/** \brief Se encarga de poner la primera letra en mayuscula y el resto en minuscula de la cadena ingresada por el usuario.
  *
  * \param lista Array de estructuras (personas)
  * \param indice Entero con la ubicacion de la persona para modificar su nombre.
@@ -30,7 +22,7 @@ int Menu(char texto[]);
  *
  */
 
-void LimpiaCadena(EPersona lista[], int indice);
+void cadena_limpiar(EPersona* lista, int indice);
 
 /** \brief Se encarga de precargar valores iniciales al Array de estructuras (personas) poniendo si estado en 0 (0=vacio)
  *
@@ -40,7 +32,7 @@ void LimpiaCadena(EPersona lista[], int indice);
  *
  */
 
-void InicializarEstructura(EPersona lista[], int TAM);
+void InicializarEstructura(EPersona* lista, int TAM);
 
 /** \brief Se encarga de ordenar por orden alfabetico el Array de estructuras (personas) por nombre
  *
@@ -50,38 +42,47 @@ void InicializarEstructura(EPersona lista[], int TAM);
  *
  */
 
-void OrdenarLista(EPersona lista[], int TAM);
+void OrdenarLista(EPersona* lista, int TAM);
 
-/** \brief Se encarga de mostrar los datos del Array de estructuras (personas)
+/** \brief Evalua cual de los valores es el mayor
  *
- * \param lista Array de estructuras (personas)
- * \param TAM Entero que representa el tamaño del Array de estructuras (personas)
- * \return vacio
- *
- */
-
-void MostrarLista(EPersona lista[], int TAM);
-
-/** \brief Se encarga de validar la cadena que se ingresa, si es mayor a la logintud pretendida se ingresan
- *
- * \param buffer Array cadena a validar
- * \param maxCadena Entero que representa la cantidad de caracteres del Array a validar (en este caso el nombre)
- * \return un Entero indicando si la cadena es valida = 1 o 0 si no lo es.
+ * \param valorUno Entero a verificar
+ * \param valorDos Entero a verificar
+ * \param valorTres Entero a verificar
+ * \return un Entero
  *
  */
 
-int validaCadena(char buffer[], int maxCadena); ///MAL no pude encontrar el error al validar.
+int calcularMayor(int valorUno, int valorDos, int valorTres);
 
-/** \brief Verifica si el valor ingresado esta comprendido en el Array de enteros rango[]
+/** \brief Se encarga de validar si la cadena se compone solo de letras y que no se pase del tamaño deseado
  *
- * \param buffer Entero ingresado para la validacion
- * \param rango Array de enteros
- * \return un Entero 1 si el valor ingresado es valido, 0 si no lo es.
+ * \param buffer, Array de caracteres a validar
+ * \param textoError, Array de caracteres que representa el texto de error
+ * \param tamDeseado, Entero que representa el tamaño a validar
+ * \return Vacio.
  *
  */
 
+void cadena_validar(char* buffer, char* textoError, int tamDeseado);
 
-int validaRango(int buffer, int rango[]);
+/** \brief Se encarga de verificar si lo ingresado esta compuesto por letras o solo numeros
+ *
+ * \param numero, Array de caracteres a validar
+ * \return Entero, 1 si esta bien y 0 si da un error.
+ *
+ */
 
+int esNumeroYPositivo(char* numero);
+
+/** \brief Se encarga de verificar si el numero ingresado es correcto o sino, nos vuelve a pedir que se ingrese un numero
+ *
+ * \param numero, Array de caracteres a tomar como numero
+ * \param textoError, Array de caracteres que muestra mensaje de error.
+ * \return Vacio.
+ *
+ */
+
+void cadena_esNumero(char* numero, char* textoError);
 
 #endif // FUNCIONESESTRUCTURAS_H_INCLUDED

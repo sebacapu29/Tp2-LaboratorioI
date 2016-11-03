@@ -4,17 +4,8 @@
 #include <ctype.h>
 #include "Personas.h"
 
-int validaOpcion(int opcion, int rango[])
-{
-    int opcionValida = 1;
-    if(opcion < rango[0] || opcion > rango[1])
-    {
-       opcionValida = 0;
-    }
-    return opcionValida;
-}
 
-int Menu(char texto[])
+int menu(char* texto)
 {
     int opcion;
     printf("\n ****MENU PRINCIPAL*****\n");
@@ -25,7 +16,7 @@ int Menu(char texto[])
     return opcion;
 }
 
-void LimpiaCadena(EPersona lista[], int indice)
+void cadena_limpiar(EPersona* lista, int indice)
 {
     char aux;
     int i;
@@ -42,16 +33,16 @@ void LimpiaCadena(EPersona lista[], int indice)
     }
 }
 
-void InicializarEstructura(EPersona lista[], int TAM)
+void InicializarEstructura(EPersona* lista, int TAM)
 {
      int i;
      for(i=0;i<TAM;i++)
      {
-        lista[i].estado = 0;
+        lista[i].estado = VACIO;
      }
 }
 
-void OrdenarLista(EPersona lista[], int TAM)
+void OrdenarLista(EPersona* lista, int TAM)
 {
     int i;
     int j;
@@ -61,7 +52,7 @@ void OrdenarLista(EPersona lista[], int TAM)
     {
         for(j=i+1;j<TAM;j++)
         {
-            if(lista[i].estado==1 && lista[j].estado==1)
+            if(lista[i].estado==HABILITADO && lista[j].estado==HABILITADO)
             {
                  if(strcmp(lista[i].nombre,lista[j].nombre)>0)
                 {
@@ -69,25 +60,23 @@ void OrdenarLista(EPersona lista[], int TAM)
                     lista[j] = lista[i];
                     lista[i]=listaAux;
                 }
-
             }
-
         }
     }
 }
 
-void MostrarLista(EPersona lista[], int TAM)
+void persona_mostrar(EPersona* lista, int TAM)
 {
     int i;
     for(i=0; i<TAM;i++)
     {
-        LimpiaCadena(lista,i);
+        cadena_limpiar(lista,i);
     }
-    printf("\n  **IMPRIMIENDO DATOS PERSONALES ACTIVAS**\n");
-    printf("   ____________________________________\n\n");
+    printf("\n  **DATOS PERSONALES ACTIVAS**\n");
+    printf("  ______________________________\n\n");
      for(i=0;i<TAM;i++)
         {
-            if(lista[i].estado==1)
+            if(lista[i].estado==HABILITADO)
             {
                 printf("\n*Nombre:  %s", lista[i].nombre);
                 printf("\n*Edad:    %d anios", lista[i].edad);
@@ -96,23 +85,58 @@ void MostrarLista(EPersona lista[], int TAM)
         }
 }
 
-int validaCadena(char buffer[], int maxCadena)
+int calcularMayor(int valorUno, int valorDos, int valorTres)
 {
-    int longitud = strlen(buffer);
-    int cadValida = 1;
-    if(longitud > maxCadena)
+    int mayor;
+
+    if(valorUno > valorDos && valorUno > valorTres)
+    {
+        mayor = valorUno;
+    }
+    else
         {
-            cadValida =0;
+            if( valorDos > valorUno && valorDos >= valorTres)
+        {
+            mayor = valorDos;
         }
-    return cadValida;
+            else
+            {
+                mayor = valorTres;
+            }
+        }
+    return mayor;
+}
+void cadena_validar(char* buffer, char* textoError, int tamDeseado)
+{
+    while( strlen(buffer)> tamDeseado || atoi(buffer)< 0 || atoi(buffer)>0)
+        {
+           printf("%s",textoError);
+           fflush(stdin);
+           gets(buffer);
+        }
 }
 
-int validaRango(int buffer, int rango[])
+int esNumeroYPositivo(char* numero)
 {
-    int valido = 1;
-    if(buffer <= rango[0] || buffer > rango[1])
+    int i;
+    int retorno=1;
+
+    for(i=0; i< strlen(numero); i++)
     {
-        valido = 0;
+        if(!isdigit(numero[i]) || atoi(numero)<0)
+        {
+            retorno = 0;
+        }
     }
-    return valido;
+    return retorno;
+}
+
+void cadena_esNumero(char* numero, char* textoError)
+{
+    while(!esNumeroYPositivo(numero))
+    {
+        printf("%s", textoError);
+        fflush(stdin);
+        gets(numero);
+    }
 }
