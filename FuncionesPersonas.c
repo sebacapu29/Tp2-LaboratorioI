@@ -103,7 +103,6 @@ void Graficar(EPersona* personas, int TAM)
     int i;
     int j;
 
-    /////hacer en funcion aparte////
      for(i=0; i<TAM; i++)
     {
         if(personas[i].estado==1)
@@ -122,7 +121,7 @@ void Graficar(EPersona* personas, int TAM)
             }
         }
     }
-    //////////hacer en funcion a parte ///////
+
     int mayor= calcularMayor(menores,intermedios,mayores);
     char matriz[mayor][3];
 
